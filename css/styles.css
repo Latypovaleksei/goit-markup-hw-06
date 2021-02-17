@@ -17,6 +17,7 @@
   --color-shadow7: rgba(0, 0, 0, 0.16);
   --border-bottom: #ececec;
   --overlay: rgba(47, 48, 58, 0.4);
+  --backgroun-section-what-we-are-do: rgba(47, 48, 58, 0.8);
   --icon: #afb1b8;
   --project-overlay: rgba(33, 150, 243, 0.9);
   --backdrop: rgba(0, 0, 0, 0.2);
@@ -133,6 +134,7 @@ li {
 
 .navigation-list a {
   color: var(--main-text-color);
+  transition-property: color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -162,6 +164,7 @@ li {
 }
 
 .contact-link {
+  transition-property: color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -198,6 +201,7 @@ li {
 .icon-mail,
 .icon-phone {
   fill: var(--second-color);
+  transition-property: fill;
   margin-right: 10px;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -365,7 +369,7 @@ li {
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--main-color);
-  background-color: rgba(47, 48, 58, 0.8);
+  background-color: var(--backgroun-section-what-we-are-do);
 }
 
 /* Блок "Наша команда" */
@@ -438,6 +442,7 @@ li {
   height: 44px;
   background-color: var(--main-color);
   border-radius: 50%;
+  transition-property: background-color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -456,6 +461,7 @@ li {
   width: 20px;
   height: 20px;
   fill: var(--icon);
+  transition-property: fill;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -481,12 +487,14 @@ li {
   border-radius: 4px;
   width: 100%;
   height: 100%;
+  transition-property: border-color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .partners-logo {
   fill: var(--icon);
+  transition-property: fill;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -531,6 +539,7 @@ li {
   padding: 6px 22px;
   border: none;
   border-radius: 4px;
+  transition-property: background, color, cursor, box-shadow;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -542,17 +551,13 @@ li {
     0px 2px 2px var(--color-shadow1);
 }
 
-.filter-btn:hover {
+.filter-btn:hover,
+.filter-btn:focus {
   background: var(--active-color);
   color: var(--main-color);
   cursor: pointer;
   box-shadow: 0px 3px 1px var(--color-shadow4), 0px 1px 2px var(--color-shadow5),
     0px 2px 2px var(--color-shadow1);
-}
-
-.filter-btn:focus {
-  background: var(--active-color);
-  color: var(--main-color);
 }
 
 /* под-Блок "Projects"*/
@@ -583,12 +588,13 @@ li {
 
 .project-item-link {
   color: var(--main-text-color);
+  transition-property: box-shadow, cursor;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-item-link:hover,
-.project-itemlink:focus {
+.project-item-link:focus {
   box-shadow: 0px 1px 1px var(--color-shadow1), 0px 4px 4px var(--color-shadow6),
     1px 4px 6px var(--color-shadow7);
   cursor: pointer;
@@ -721,7 +727,7 @@ a.phone-footer {
   width: 100%;
   height: 100%;
   background-color: var(--backdrop);
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal {
