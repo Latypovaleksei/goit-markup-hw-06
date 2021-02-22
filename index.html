@@ -64,7 +64,7 @@
     <!--  Особенности -->
     <section class="section-features sections">
       <div class="container">
-        <h2 hidden>Особенности</h2>
+        <h2 class="visually-hidden">Особенности</h2>
         <ul class="section-features-list">
           <li class="box-feature">
             <div class="box-feature-icon">
@@ -382,9 +382,20 @@
           </li>
         </ul>
       </div>
+      <div class="sign-up">
+        <p class="sign-up-text">Подпишитесь на рассылку</p>
+        <form action="#" class="sign-up-form">
+          <input type="email" name="sign-up-mail" class="sing-up-mail" placeholder="E-mail">
+          <button type="submit" class="sing-up-btn">Подписаться
+            <svg class="icon-send">
+              <use href="./images/sprite.svg#icon-icon-send"></use>
+            </svg>
+          </button>
+        </form>
+      </div>
     </div>
   </footer>
-  <!-- Модоальное окно-->
+  <!-- Модальное окно-->
   <div class="backdrop is-hidden" data-modal>
     <div class="modal">
       <button type="button" class="modal-close-btm" data-modal-close>
@@ -394,24 +405,46 @@
       </button>
       <p class="text-leave-data">Оставьте свои данные, мы вам перезвоним</p>
       <form action="#" class="modal-form">
-        <label for="" class="modal-form-input-label">Имя</label>
-        <input type="text" name="user-name" class="modal-form-input">
-
-        <label for="" class="modal-form-input-label">Телефон</label>
-        <input type="tel" name="user-tel" class="modal-form-input">
-
-        <label for="" class="modal-form-input-label">Почта</label>
-        <input type="email" name="user-mail" class="modal-form-input">
-
-        <label for="" class="modal-form-input-label">Комментарий</label>
-        <textarea name="user-comment" placeholder="Введите текст"></textarea>
-
-        <input type="checkbox" name="user-policy" class="modal-form-input-checkox">
-        <label for="" class="modal-form-input-label-checkox-policy">
+        
+        <label class="modal-form-input-label">Имя
+          <span class="modal-input-box">
+            <input type="text" name="user-name" class="modal-form-input">
+            <svg class="modal-icon name">
+              <use href="./images/sprite.svg#icon-modal-name"></use>
+            </svg>
+          </span>
+        </label>
+                  
+        <label class="modal-form-input-label">Телефон
+          <span class="modal-input-box">
+            <input type="tel" name="user-tel" class="modal-form-input">
+            <svg class="modal-icon tel">
+              <use href="./images/sprite.svg#icon-modal-tel"></use>
+            </svg>
+          </span>
+        </label>
+        
+        <label class="modal-form-input-label">Почта
+          <span class="modal-input-box">
+            <input type="email" name="user-mail" class="modal-form-input">
+            <svg class="modal-icon mail">
+              <use href="./images/sprite.svg#icon-modal-mail"></use>
+            </svg>
+          </span>
+        </label>
+        
+        <label class="modal-form-input-label">Комментарий
+          <textarea name="user-comment" placeholder="Введите текст"></textarea>
+        </label>
+                
+        <input type="checkbox" id="checkbox-policy" name="user-policy" class="modal-form-input-checkox visually-hidden">
+        <label for="checkbox-policy" class="modal-form-input-label-checkox-policy">
           Соглашаюсь с рассылкой и принимаю <a href="#" class="policy">Условия договора</a>
         </label>
-
-        <button type="submit" class="modal-submit-btn">Отправить</button>
+       
+        <div class="modal-submit">
+         <button type="submit" class="modal-submit-btn">Отправить</button>
+        </div>
       </form>
     </div>
   </div>

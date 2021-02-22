@@ -7,6 +7,7 @@
   --main-text-color: #212121;
   --section-our-team-color: #f5f4fa;
   --contacts-foter-text-color: rgba(255, 255, 255, 0.6);
+  --sing-up-border: rgba(255, 255, 255, 0.3);
   --border-color: #eeeeee;
   --color-shadow1: rgba(0, 0, 0, 0.12);
   --color-shadow2: rgba(0, 0, 0, 0.14);
@@ -15,6 +16,7 @@
   --color-shadow5: rgba(0, 0, 0, 0.08);
   --color-shadow6: rgba(0, 0, 0, 0.06);
   --color-shadow7: rgba(0, 0, 0, 0.16);
+  --color-shadow8: rgba(0, 0, 0, 0.15);
   --border-bottom: #ececec;
   --overlay: rgba(47, 48, 58, 0.4);
   --backgroun-section-what-we-are-do: rgba(47, 48, 58, 0.8);
@@ -22,6 +24,19 @@
   --project-overlay: rgba(33, 150, 243, 0.9);
   --backdrop: rgba(0, 0, 0, 0.2);
   --border-form: rgba(33, 33, 33, 0.2);
+  --textarea: rgba(117, 117, 117, 0.5);
+  --active-btn: #188ce8;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
 }
 
 body {
@@ -246,22 +261,24 @@ li {
   margin-bottom: 30px;
 }
 
-.hero-button {
+.hero-button,
+.modal-submit-btn,
+.sing-up-btn {
+  display: block;
+  align-items: center;
+  justify-content: center;
   background: var(--active-color);
   color: var(--main-color);
   border: none;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.87;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  min-width: 200px;
-  min-height: 50px;
+  width: 200px;
+  height: 50px;
   letter-spacing: 0.06em;
   cursor: pointer;
   padding: 0;
+  box-shadow: 0px 4px 4px var(--color-shadow8);
   border-radius: 4px;
 }
 
@@ -689,7 +706,8 @@ a.phone-footer {
   color: var(--contacts-foter-text-color);
 }
 
-.join {
+.join,
+.sign-up-text {
   color: var(--main-color);
   font-weight: 700;
   font-size: 14px;
@@ -716,6 +734,49 @@ a.phone-footer {
 
 .social-footer-list .social-list-icon {
   fill: var(--main-color);
+}
+
+.sign-up {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: auto;
+}
+
+.sign-up-form {
+  display: flex;
+  flex-direction: row;
+}
+
+.sing-up-mail {
+  width: 358px;
+  height: 50px;
+  color: var(--main-color);
+  background: var(--background-hero-footer);
+  padding-left: 16px;
+  border: 1px solid var(--sing-up-border);
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px 0px var(--color-shadow8);
+  margin-right: 12px;
+}
+
+.sing-up-mail::placeholder {
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+  color: var(--contacts-foter-text-color);
+}
+
+.sing-up-btn {
+  display: flex;
+  align-items: center;
+  background-color: var(--active-color);
+}
+
+.icon-send {
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
 }
 
 /* Модальное окно */
@@ -762,9 +823,36 @@ a.phone-footer {
   border-radius: 50%;
 }
 
+.modal-close-btm:hover,
+.modal-close-btm:focus {
+  cursor: pointer;
+}
+.modal-close-btm:hover .modal-close-icon,
+.modal-close-btm:focus .modal-close-icon {
+  fill: var(--active-color);
+}
+
 .modal-close-icon {
   width: 18px;
   height: 18px;
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.name {
+  width: 12px;
+  height: 12px;
+}
+
+.tel {
+  width: 13px;
+  height: 13px;
+}
+
+.mail {
+  width: 15px;
+  height: 12px;
 }
 
 .is-hidden {
@@ -789,23 +877,128 @@ a.phone-footer {
 }
 
 .modal-form-input-label {
+  display: block;
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.01em;
   color: var(--second-color);
-  margin-bottom: 4px;
 }
 
-.modal-form-input:not(:last-child) {
+.modal-form-input-label:not(:last-child) {
   margin-bottom: 10px;
 }
 
-.modal-form-input {
+.modal-input-box {
+  display: block;
+  position: relative;
   height: 40px;
+  margin-top: 4px;
+}
+
+.modal-icon {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translate(0, -50%);
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-form-input {
+  display: block;
+  width: 100%;
+  height: inherit;
   border: 1px solid var(--border-form);
   border-radius: 4px;
+  padding-left: 42px;
+  transition-property: border-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-form-input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--active-color);
+  cursor: pointer;
+}
+
+.modal-form-input:focus + .modal-icon {
+  fill: var(--active-color);
+  cursor: pointer;
 }
 
 textarea {
+  display: block;
   margin-bottom: 20px;
+  width: 100%;
+  height: 120px;
+  border: 1px solid var(--border-form);
+  border-radius: 4px;
+  margin-top: 4px;
+  padding: 12px 16px;
+  resize: none;
+  transition-property: border-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+textarea::placeholder {
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+  color: var(--textarea);
+}
+
+.modal-form-input-label-checkox-policy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  color: var(--second-color);
+}
+
+.modal-form-input-label-checkox-policy::before {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 15px;
+  border: 1px solid var(--main-text-color);
+  border-radius: 2px;
+  margin-right: 8px;
+}
+
+.modal-form-input-checkox:checked
+  + .modal-form-input-label-checkox-policy::before {
+  border: 1px solid var(--active-color);
+  border-radius: 2px;
+  background-color: var(--active-color);
+  background-image: url(/images/iconcheck.svg);
+  background-size: contain;
+  background-origin: border-box;
+}
+
+.policy {
+  color: var(--active-color);
+  text-decoration-line: underline;
+}
+
+.modal-submit {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-submit-btn:hover,
+.modal-submit-btn:focus {
+  background-color: var(--active-btn);
+}
+
+.modal-submit-btn {
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
