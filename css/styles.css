@@ -884,7 +884,7 @@ a.phone-footer {
   color: var(--second-color);
 }
 
-.modal-form-input-label:not(:last-child) {
+.modal-form-input-label:not(:nth-child(4)) {
   margin-bottom: 10px;
 }
 
@@ -929,9 +929,12 @@ textarea:focus {
   cursor: pointer;
 }
 
+.label-comment {
+  margin-bottom: 20px;
+}
+
 textarea {
   display: block;
-  margin-bottom: 20px;
   width: 100%;
   height: 120px;
   border: 1px solid var(--border-form);
@@ -977,7 +980,7 @@ textarea::placeholder {
   border: 1px solid var(--active-color);
   border-radius: 2px;
   background-color: var(--active-color);
-  background-image: url(/images/iconcheck.svg);
+  background-image: url(../images/iconcheck.svg);
   background-size: contain;
   background-origin: border-box;
 }
