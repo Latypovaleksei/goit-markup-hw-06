@@ -8,11 +8,11 @@
   --third-background-color: rgba(245, 244, 250, 1);
   --bt-hover: rgba(24, 140, 232, 1);
   --header-border: 1px solid rgba(236, 236, 236, 1);
-  --box-shadow-fotocard: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
+  --box-shadow-fotocard: 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   --shadow-bt-hero: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  --shadow-bt-filter: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
-    0px 2px 2px rgba(0, 0, 0, 0.12);
+  --shadow-bt-filter: 0px 3px 1px rgba(0, 0, 0, 0.1),
+    0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
   --works-border: 1px solid #eeeeee;
   --works-item-gap: 30px;
   --hero-linear-gradient: to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4);
@@ -25,8 +25,11 @@
   --modal-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   --bg-label: rgba(47, 48, 58, 0.8);
   --bg-overlay: rgba(33, 150, 243, 0.9);
-  --shadow-works-link: 1px 4px 6px 0px rgba(0, 0, 0, 0.16), 0px 4px 4px 0px rgba(0, 0, 0, 0.06),
-    0px 1px 1px 0px rgba(0, 0, 0, 0.12);
+  --shadow-works-link: 1px 4px 6px 0px rgba(0, 0, 0, 0.16),
+    0px 4px 4px 0px rgba(0, 0, 0, 0.06), 0px 1px 1px 0px rgba(0, 0, 0, 0.12);
+  --shadow-form: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  --bg-input-follow-us: rgba(33, 150, 243, 0);
+  --border-input-follow-us: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 a {
@@ -231,7 +234,8 @@ header {
   margin-right: auto;
 
   background-color: var(--secondary-background-color);
-  background-image: linear-gradient(var(--hero-linear-gradient)), url('../images/hero_img.jpg');
+  background-image: linear-gradient(var(--hero-linear-gradient)),
+    url('../images/hero_img.jpg');
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -798,4 +802,85 @@ section.team {
 .join-box .social-link:hover .icon,
 .join-box .social-link:focus .icon {
   fill: var(--main-color);
+}
+
+/* блок Подпишитеь на нас */
+
+.follow-us {
+  margin-left: auto;
+}
+
+.follow-us-text {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  color: var(--main-color);
+  text-transform: uppercase;
+
+  margin-bottom: 20px;
+}
+
+.follow-us-form {
+  display: flex;
+  align-items: center;
+}
+
+.follow-us-form .input {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+  color: var(--third-text-color);
+
+  padding-left: 16px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  background-color: var(--bg-input-follow-us);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  box-shadow: var(--shadow-form);
+
+  width: 358px;
+
+  margin-right: 12px;
+}
+
+.follow-us-form .input::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+  color: var(--third-text-color);
+}
+
+.bt-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+  min-height: 50px;
+  cursor: pointer;
+
+  padding: 0px 28px;
+
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+  color: var(--main-color);
+
+  background-color: var(--highlighting-color);
+  border-radius: 4px;
+  border: none;
+
+  box-shadow: var(--shadow-form);
+}
+
+.bt-form .icon {
+  fill: var(--main-color);
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
 }
