@@ -22,7 +22,8 @@
   --backdrop: rgba(0, 0, 0, 0.2);
   --border-modal-bt-close: rgba(0, 0, 0, 0.1);
   --cross-color: rgba(0, 0, 0, 1);
-  --modal-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  --modal-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   --bg-label: rgba(47, 48, 58, 0.8);
   --bg-overlay: rgba(33, 150, 243, 0.9);
   --shadow-works-link: 1px 4px 6px 0px rgba(0, 0, 0, 0.16),
@@ -30,6 +31,8 @@
   --shadow-form: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
   --bg-input-follow-us: rgba(33, 150, 243, 0);
   --border-input-follow-us: 1px solid rgba(255, 255, 255, 0.3);
+  --textarea-text-color: rgba(117, 117, 117, 0.5);
+  --link-conditions: rgb(33, 150, 243);
 }
 
 a {
@@ -252,7 +255,7 @@ header {
   margin-bottom: 30px;
 }
 
-.bt-hero {
+.bt {
   background-color: var(--highlighting-color);
   font-weight: 700;
   font-size: 16px;
@@ -264,15 +267,18 @@ header {
   border-radius: 4px;
   border: none;
 
-  width: 200px;
-  height: 50px;
-
   transition-property: background-color;
   transition-duration: 250ms;
   transition-timing-function: var(--animation-timing-function);
 }
 
-.bt-hero:hover {
+.hero .bt {
+  width: 200px;
+  height: 50px;
+}
+
+.bt:hover,
+.bt:focus {
   cursor: pointer;
   background-color: var(--bt-hover);
 }
@@ -304,6 +310,7 @@ header {
   transform: translate(-50%, -50%);
   min-width: 528px;
   min-height: 581px;
+  padding: 40px;
 
   background-color: var(--main-color);
   box-shadow: var(--modal-shadow);
@@ -337,6 +344,131 @@ header {
   width: 18px;
   height: 18px;
   fill: var(--cross-color);
+}
+
+.modal-text {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: var(--main-text-color);
+  margin-bottom: 12px;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-form .bt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 50px;
+  align-self: center;
+}
+
+.modal-label {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  color: var(--secondary-text-color);
+
+  margin-bottom: 4px;
+}
+
+.modal-input {
+  height: 40px;
+  width: 100%;
+
+  padding-left: 42px;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+}
+
+.box-input {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.box-input .icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  fill: var(--main-text-color);
+}
+
+.comment {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+  color: var(--textarea-text-color);
+  padding: 12px 16px;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  resize: none;
+  height: 120px;
+
+  margin-bottom: 20px;
+}
+
+.comment::placeholder {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+  color: var(--textarea-text-color);
+}
+
+.conditions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  color: var(--secondary-text-color);
+
+  margin-bottom: 20px;
+}
+
+.conditions::before {
+  content: '';
+  width: 16px;
+  height: 15px;
+  border: 1px solid rgba(33, 33, 33, 1);
+  border-radius: 4px;
+
+  margin-right: 8px;
+}
+
+.checkbox:checked + .conditions::before {
+  border: none;
+  background-image: url(../images/check.svg);
+  background-size: contain;
+  background-origin: border-box;
+  box-sizing: content-box;
+}
+
+.conditions a {
+  color: var(--link-conditions);
+  text-decoration: underline;
+}
+
+.checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 /* Особенности */
@@ -855,30 +987,17 @@ section.team {
   color: var(--third-text-color);
 }
 
-.bt-form {
+.follow-us-form .bt {
   display: flex;
   align-items: center;
   justify-content: center;
   min-width: 200px;
   min-height: 50px;
-  cursor: pointer;
-
   padding: 0px 28px;
-
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.87;
-  letter-spacing: 0.06em;
-  color: var(--main-color);
-
-  background-color: var(--highlighting-color);
-  border-radius: 4px;
-  border: none;
-
   box-shadow: var(--shadow-form);
 }
 
-.bt-form .icon {
+.bt .icon {
   fill: var(--main-color);
   width: 24px;
   height: 24px;
