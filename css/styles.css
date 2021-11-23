@@ -266,6 +266,7 @@ header {
   box-shadow: var(--shadow-bt-hero);
   border-radius: 4px;
   border: none;
+  padding: 0;
 
   transition-property: background-color;
   transition-duration: 250ms;
@@ -346,6 +347,11 @@ header {
   fill: var(--cross-color);
 }
 
+.modal-bt-close:focus .icon,
+.modal-bt-close:hover .icon {
+  fill: var(--highlighting-color);
+}
+
 .modal-text {
   font-size: 20px;
   font-weight: 700;
@@ -388,11 +394,30 @@ header {
 
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
+  cursor: pointer;
+  z-index: 10;
+
+  transition-property: border-color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--animation-timing-function);
+}
+
+.modal-input:focus,
+.comment:focus {
+  outline: none;
+  border-color: var(--highlighting-color);
+}
+
+.modal-input:focus + .icon {
+  fill: var(--highlighting-color);
 }
 
 .box-input {
   position: relative;
   margin-bottom: 10px;
+
+  display: block;
+  cursor: pointer;
 }
 
 .box-input .icon {
@@ -418,6 +443,8 @@ header {
   resize: none;
   height: 120px;
 
+  cursor: pointer;
+
   margin-bottom: 20px;
 }
 
@@ -438,6 +465,8 @@ header {
   line-height: 1.71;
   letter-spacing: 0.03em;
   color: var(--secondary-text-color);
+
+  cursor: pointer;
 
   margin-bottom: 20px;
 }
@@ -991,8 +1020,8 @@ section.team {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 200px;
-  min-height: 50px;
+  width: 200px;
+  height: 50px;
   padding: 0px 28px;
   box-shadow: var(--shadow-form);
 }
